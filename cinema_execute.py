@@ -1,8 +1,7 @@
-from os import getcwd
 import random
 import csv
 from cinemaCollection import LineCollection, Cinema
-from customerCollection import Customer
+from customer import Customer
 from binary_search_tree import BTree
 from moviesCollection import MovieCollection, Movie
 
@@ -120,7 +119,6 @@ def remove_customer(customer_tree, customer):
     customer_tree.delete(customer)
 
 if __name__ == '__main__':
-    print(getcwd())
     db_customer = prepare_db_data()
     customer_queue = prepare_waiting_line()
 

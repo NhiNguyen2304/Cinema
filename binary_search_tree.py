@@ -1,5 +1,5 @@
 import random
-from customerCollection import Customer
+from customer import Customer
 
 
 class BTree:
