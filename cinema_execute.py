@@ -2,7 +2,7 @@ from os import getcwd
 import random
 import csv
 from cinemaCollection import LineCollection, Cinema
-from customerCollection1 import Customer
+from customerCollection import Customer
 from binary_search_tree import BTree
 from moviesCollection import MovieCollection, Movie
 

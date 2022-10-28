@@ -1,6 +1,6 @@
 import random
 from customize_collections import Queue
-from customerCollection1 import Customer
+from customerCollection import Customer
 
 
 class Cinema:
