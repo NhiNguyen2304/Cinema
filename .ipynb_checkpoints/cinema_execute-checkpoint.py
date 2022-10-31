@@ -126,11 +126,25 @@ def delete_customer(db_customer, customer_info):
     
 
 def receive_movie(cinema_seats):
-    # Demonstrate for a comming movies
-
+     #Simulate receive new movies at random times,
     movies = MovieCollection()
-    movies.receive_movie()
 
+    # copy for favourite movie
+    fav_movie = Movie('Titanic', 200)
+
+    #inital movie list with some movies
+    m2 = Movie("Spider men", 135)
+    m3 = Movie("Avatar", 225)
+    movies.insert(m2)
+    movies.insert(m3)
+
+    # Random receive movie (use random generates a number from 0 => 3.)
+    if random.randint(0,3) == 3:
+        m1 = Movie('Normal people', 120)
+        movies.insert(m1)
+    else:
+        movies.insert(fav_movie)
+        
     return movies
 
 def schedule_movies(movies, serving_cinema):
@@ -141,7 +155,7 @@ def schedule_movies(movies, serving_cinema):
     '''
     print("")
     print("######################################################################")
-    print(f'Cinema is displaying {movies.display_movie()} minutes. With customers:')
+    print(f'Cinema is displaying {movies.displayMovie()} minutes. With customers:')
     for cus in serving_cinema.seat:
         print(cus)
 

@@ -14,63 +14,6 @@ class BTree:
     def __repr__(self) -> str:
         return f"<BSTNode at {hex(id(self))}"
 
-    def display(self):
-        '''
-        This function is inspired from: https://stackoverflow.com/a/54074933
-        Description: Display binary search tree for testing purpose
-        '''
-        lines, *_ = self._display_aux()
-        for line in lines:
-            print(line)
-
-    def _display_aux(self):
-        """
-        This function is inspired from: https://stackoverflow.com/a/54074933
-        Description: Returns list of strings, width, height, and horizontal coordinate of the root.
-        """
-        # No child.
-        if self.right_child is None and self.left_child is None:
-            line = '%s' % self.key.print_testing()
-            width = len(line)
-            height = 1
-            middle = width // 2
-            return [line], width, height, middle
-
-        # Only left child.
-        if self.right_child is None:
-            lines, n, p, x = self.left_child._display_aux()
-            s = '%s' % self.key.print_testing()
-            u = len(s)
-            first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s
-            second_line = x * ' ' + '/' + (n - x - 1 + u) * ' '
-            shifted_lines = [line + u * ' ' for line in lines]
-            return [first_line, second_line] + shifted_lines, n + u, p + 2, n + u // 2
-
-        # Only right child.
-        if self.left_child is None:
-            lines, n, p, x = self.right_child._display_aux()
-            s = '%s' % self.key.print_testing()
-            u = len(s)
-            first_line = s + x * '_' + (n - x) * ' '
-            second_line = (u + x) * ' ' + '\\' + (n - x - 1) * ' '
-            shifted_lines = [u * ' ' + line for line in lines]
-            return [first_line, second_line] + shifted_lines, n + u, p + 2, u // 2
-
-        # Two children.
-        left_child, n, p, x = self.left_child._display_aux()
-        right_child, m, q, y = self.right_child._display_aux()
-        s = '%s' % self.key.print_testing()
-        u = len(s)
-        first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s + y * '_' + (m - y) * ' '
-        second_line = x * ' ' + '/' + (n - x - 1 + u + y) * ' ' + '\\' + (m - y - 1) * ' '
-        if p < q:
-            left_child += [n * ' '] * (q - p)
-        elif q < p:
-            right_child += [m * ' '] * (p - q)
-        zipped_lines = zip(left_child, right_child)
-        lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
-        return lines, n + m + u, max(p, q) + 2, n + u // 2
-
     def isEmpty(self):
         ''' return true if the binary tree is empty; otherwise, return false'''
         if self.key == None:
@@ -221,27 +164,25 @@ if __name__ == '__main__':
     # print(tree.PreOrderTraverse())
     c0 = Customer('Nina', 'Nguyen','0450343022', 'Paypal', random.randint(1, 10))
     tree = BTree(c0)
-    c1 = Customer('Jim', 'Tomkinson', '0450343234', 'Paypal', random.randint(1, 10))
-    c2 = Customer('Richy', 'AAAAA', '13434343', 'Cash', random.randint(1, 10))
-    c3 = Customer('Nina', 'Hguyen','0450343022', 'Paypal', 9)
+    c1 = Customer('Jim', 'AAAAA', '0450343234', 'Paypal', random.randint(1, 10))
+    c2 = Customer('Richy', 'Tomkinson', '13434343', 'Cash', random.randint(1, 10))
+    c3 = Customer('Nina', 'Aguyen','0450343022', 'Paypal', 9)
 
     tree.insert(c1)
     tree.insert(c2)
     tree.insert(c3)
 
-    tree.display()
-
-    # print(tree.key)
-    # print(tree.left_child)
-    # print(tree.right_child)
-    # print(tree.left_child.right_child)
+    print(tree.key)
+    print(tree.left_child)
+    print(tree.right_child)
+    print(tree.left_child.right_child)
     # print(tree.right_child.right_child.right_child)
 
-    # tree.delete(c3)
-    # print('AFTER ####')
-    # print(tree.key)
-    # print(tree.left_child)
-    # print(tree.right_child)
-    # print(tree.left_child.right_child)
+    tree.delete(c3)
+    print('AFTER ####')
+    print(tree.key)
+    print(tree.left_child)
+    print(tree.right_child)
+    print(tree.left_child.right_child)
 
     print(tree.search(Customer('Nina','NNguyen','','','')))

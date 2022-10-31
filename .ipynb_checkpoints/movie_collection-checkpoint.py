@@ -1,4 +1,4 @@
-from customize_collections import Stack
+from customize_collection import Stack
 
 class Movie:
     def __init__(self, movie_name, duration) -> None:

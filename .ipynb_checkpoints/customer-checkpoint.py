@@ -13,12 +13,6 @@ class Customer:
     def __str__(self) -> str:
         return f"{self.firstname} {self.lastname}, phone: {self.phoneno}, payment: {self.payment_method}, screen number: {self.no_of_screen}"
     
-    def print_testing(self) -> str:
-        '''
-        Description: this function print customer fullname for testing purpose
-        '''
-        return f"{self.firstname} {self.lastname}"
-    
     def to_string(self):
         return self.__str__()
     

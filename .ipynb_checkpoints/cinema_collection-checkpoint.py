@@ -1,10 +1,9 @@
 import random
-from customize_collections import Queue
+from customize_collection import Queue
 from customer import Customer
 
 
 class Cinema:
-    capacity = 5
     def __init__(self):
         # cinema fix capacity
         self.seat = []
@@ -22,6 +21,9 @@ class LineCollection:
     def __init__(self) -> None:
         self.waiting_line = Queue()
     
+    def isEmpty(self):
+        return self.waiting_line.items == []
+
     def add_to_line(self, Customer):
         self.waiting_line.enqueue(Customer)
     
@@ -34,13 +36,13 @@ class LineCollection:
 
     def pick_customer(self):
         customer = self.waiting_line.dequeue()
-        print(f'Serving customer: {customer}')
+        #print(f'Serving customer: {customer}')
         return customer
     
     def clear_line(self):
         self.waiting_line = Queue()
 
-# if __name__ == '__main__':
+#if __name__ == '__main__':
 #     cinema = Cinema()
 #     cinema_capacity = 5
 
@@ -53,7 +55,8 @@ class LineCollection:
 
 #     c4 = Customer('Coco', 'Tran','34234545454', 'Paypal', 0)
 
-#     line = LineCollection()
+    # line = LineCollection()
+    # print(line.isEmpty())
 
 #     # Demonstrate customer already in cinema database
 #     customers = CustomerCollection()
@@ -74,19 +77,20 @@ class LineCollection:
 
 
 #     # Demonstrate for customer in line (with 0 no_of_screen)
-#     wc0 = Customer('Nina', 'Nguyen','0450343022', 'Paypal', 0)
-#     wc1 = Customer('Jim', 'Tran', '0450343234', 'Paypal', 0)
-#     wc2 = Customer('Richy', 'Tomkinson', '13434343', 'Cash', 0)
-#     wc3 = Customer('Nina', 'NNguyen','0450343022', 'Paypal', 0)
-#     wc4 = Customer('Coco', 'Tran','34234545454', 'Paypal', 0)
+    # wc0 = Customer('Nina', 'Nguyen','0450343022', 'Paypal', 0)
+    # wc1 = Customer('Jim', 'Tran', '0450343234', 'Paypal', 0)
+    # wc2 = Customer('Richy', 'Tomkinson', '13434343', 'Cash', 0)
+    # wc3 = Customer('Nina', 'NNguyen','0450343022', 'Paypal', 0)
+    # wc4 = Customer('Coco', 'Tran','34234545454', 'Paypal', 0)
 
-#     line.add_to_line(wc4)
-#     line.add_to_line(wc0)
-#     line.add_to_line(wc1)
-#     line.add_to_line(wc2)
-#     line.add_to_line(wc3)
+    # line = LineCollection()
+    # line.add_to_line(wc4)
+    # line.add_to_line(wc0)
+    # line.add_to_line(wc1)
+    # line.add_to_line(wc2)
+    # line.add_to_line(wc3)
     
-#     #line.display_waiting_line()
+    # print(line.isEmpty())
 
 #     # Servicing customers with cinema capacity
 #     for i in range(cinema.capacity):

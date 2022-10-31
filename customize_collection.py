@@ -24,10 +24,10 @@ class Stack:
         return self.items == []
 
     def __str__(self):
-        return 'Stack: ' + ', '.join(self.items)
+        return 'Stack: ' + ', '.join(str(self.items))
 
-    def __repr__(self) -> str:
-        return self.__str__()
+    # def __repr__(self) -> str:
+    #     return self.__str__()
 
     def printStack(self):
         print(self.items)
@@ -41,7 +41,9 @@ class Queue:
         self.items = []
     
     def isEmpty(self):
-        self.items == []
+        if self.items == None:
+            return True
+        return False
     
     def enqueue(self, item):
         self.items.insert(0, item)
@@ -68,8 +70,8 @@ class Queue:
         print(self.enqueue)
 
 
-if __name__ == '__main__':
-    s = Queue()
-    s.enqueue('Latte')
-    s.enqueue('Cappu')
-    s.display()
+# if __name__ == '__main__':
+#     s = Queue()
+#     s.enqueue('Latte')
+#     s.enqueue('Cappu')
+#     s.display()
