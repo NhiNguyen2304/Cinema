@@ -1,6 +1,6 @@
 # Cinema ⚡️
 ⚡️This is Cinema project for applying Data Structure.\
-⚡️This project aimed to implement data structure as LinkedList, Queue, Stack, Binary Search Tree from scratch by using Python\
+⚡️This project aimed to implement data structure as LinkedList, Queue, Stack, Binary Search Tree from scratch by using Python
 
 ### Project specification, implement data structure to solve project problem
 
@@ -27,6 +27,6 @@ Adding a customer\
 ⚡️Removing a customer\
 ⚡️Receiving a new movie\
 ⚡️Scheduling the next movie\
-⚡️Serving customers\
+⚡️Serving customers
 
 More solving problem from file (n11232862_PhanThaoNhiNguyen_IFN564_Ass.pdf)
