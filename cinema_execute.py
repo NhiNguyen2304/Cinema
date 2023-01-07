@@ -5,7 +5,16 @@ from customer import Customer
 from binary_search_tree import BTree
 from movie_collection import MovieCollection, Movie
 
+'''
+This cinema_execute file to perform cinema actions. 
+Generate existed customers in system.
+Add customers into waiting line.
+Sell tickets with cinema capacity.
+Insert or delete customers.
+Serving customer with free ticket or not.
+Manage for receive new movies and Display latest movie.
 
+'''
 def prepare_db_data():
     '''
     Description: This function is used to generate cinema database
@@ -62,7 +71,7 @@ def prepare_waiting_line():
 
 def bind_object(customer):
     '''
-    Description: This method plus 1 into served customer no of screen
+    Description: This method do the bind +1 into served customer no of screen
     '''
     fname = customer.get_first_name()
     lname = customer.get_last_name()
@@ -72,8 +81,13 @@ def bind_object(customer):
     screen_no += 1
     return Customer(fname, lname, phone, pMethod, screen_no)
 
-def serve_customer(cinema, db_customer, customer_queue):
-
+def serve_customer(db_customer, customer_queue):
+    '''
+    Description: This method perform selling ticket for customer in waiting line.
+                _ Check if a  customer existed in system or not. If not insert them to system.
+                _ If exist, checking customer number of screen for free ticket
+    Input: list of existed customers, customer in queue (waiting line)
+    '''
     cinema = Cinema()
     # Servicing customers with cinema capacity
     for i in range(cinema.capacity):
@@ -117,6 +131,9 @@ def serve_customer(cinema, db_customer, customer_queue):
     return cinema
 
 def delete_customer(db_customer, customer_info):
+    '''
+    Description: This method perform delete customer information in system
+    '''
     found_customer = db_customer.search(Customer(customer_info.get_first_name(), customer_info.get_last_name(), '', '', ''))
     
     if found_customer == True:
@@ -126,7 +143,9 @@ def delete_customer(db_customer, customer_info):
     
 
 def receive_movie(cinema_seats):
-    # Demonstrate for a comming movies
+    '''
+    Description: This method perform receive new movies
+    '''
 
     movies = MovieCollection()
     movies.receive_movie()

@@ -38,14 +38,17 @@ class LineCollection:
             print(f'Waiting line: {x}')
 
     def pick_customer(self):
-        customer = self.waiting_line.dequeue()
+        if self.waiting_line.items != []:
+            customer = self.waiting_line.dequeue()
         #print(f'Serving customer: {customer}')
+        else:
+            customer = None
         return customer
     
     def clear_line(self):
         self.waiting_line = Queue()
 
-#if __name__ == '__main__':
+# if __name__ == '__main__':
     # cinema = Cinema()
     # c0 = Customer('Nina', 'Nguyen','0450343022', 'Paypal', random.randint(1, 10))
     # c1 = Customer('Jim', 'Tran', '0450343234', 'Paypal', random.randint(1, 10))

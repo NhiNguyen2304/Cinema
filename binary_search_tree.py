@@ -111,40 +111,43 @@ class BTree:
         '''
         ptr = self
         parent = None
-        while ptr != None and ptr.key != k:
-            parent = ptr
-            if ptr.key.compare_to(k) == 1:
-                ptr = ptr.left_child
-            else:
-                ptr = ptr.right_child
-        
-        if ptr != None:
-            if ptr.left_child != None and ptr.right_child != None:
-                if ptr.left_child.right_child == None:
-                    ptr.key = ptr.left_child
-                    ptr.left_child = ptr.left_child.left_child
+        if self.key.compare_to(k) == 0:
+            print("Cannot delete root")
+        else:
+            while ptr != None and ptr.key != k:
+                parent = ptr
+                if ptr.key.compare_to(k) == 1:
+                    ptr = ptr.left_child
                 else:
-                    p = ptr.left_child
-                    pp = ptr
-                    while p.right_child != None:
-                        pp = p
-                        p = p.right_child
-                    ptr.key = p.key
-                    pp.right_child = p.left_child
-        
-            else:
-                if ptr.left_child != None:
-                    c = ptr.left_child
-                else:
-                    c = ptr.right_child
-                
-                if ptr == self.key: # need to change root
-                    self.key = c
-                else:
-                    if ptr == parent.left_child:
-                        parent.left_child = c
+                    ptr = ptr.right_child
+
+            if ptr != None:
+                if ptr.left_child != None and ptr.right_child != None:
+                    if ptr.left_child.right_child == None:
+                        ptr.key = ptr.left_child
+                        ptr.left_child = ptr.left_child.left_child
                     else:
-                        parent.right_child = c
+                        p = ptr.left_child
+                        pp = ptr
+                        while p.right_child != None:
+                            pp = p
+                            p = p.right_child
+                        ptr.key = p.key
+                        pp.right_child = p.left_child
+
+                else:
+                    if ptr.left_child != None:
+                        c = ptr.left_child
+                    else:
+                        c = ptr.right_child
+
+                    if ptr == self.key: # need to change root
+                        self.key = c
+                    else:
+                        if ptr == parent.left_child:
+                            parent.left_child = c
+                        else:
+                            parent.right_child = c
                 
 
 
@@ -221,6 +224,7 @@ if __name__ == '__main__':
     # print(tree.PreOrderTraverse())
     c0 = Customer('Nina', 'Nguyen','0450343022', 'Paypal', random.randint(1, 10))
     tree = BTree(c0)
+    tree.delete(c0)
     c1 = Customer('Jim', 'Tomkinson', '0450343234', 'Paypal', random.randint(1, 10))
     c2 = Customer('Richy', 'AAAAA', '13434343', 'Cash', random.randint(1, 10))
     c3 = Customer('Nina', 'Hguyen','0450343022', 'Paypal', 9)

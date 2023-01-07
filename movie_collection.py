@@ -18,11 +18,11 @@ class MovieCollection:
     def __init__(self) -> None:
         self.movies = Stack()
 
-    # def insert(self, movie):
-    #     '''
-    #     Insert movie to movie stack
-    #     '''
-    #     self.movies.push(movie)
+    def insert(self, movie):
+        '''
+        Insert movie to movie stack
+        '''
+        self.movies.push(movie)
     
     def display_movie(self):
         '''
@@ -32,7 +32,7 @@ class MovieCollection:
         return latest_movie
         #print(f'Movies: {latest_movie} is displaying')
     
-    def receive_movie(self):
+    def receive_movie(self, input_random_num = 3):
         #Simulate receive new movies at random times,
         #movies = MovieCollection()
 
@@ -49,7 +49,7 @@ class MovieCollection:
         random_movie = Movie('Normal people', 120)
 
         # Random receive movie at a random timing (use random generates a number from 0 => 3.)
-        if random.randint(0,3) == 3:
+        if random.randint(0,3) == input_random_num:
             print("######## Receive a new movie #########")
             self.movies.push(random_movie)
         else:

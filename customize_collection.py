@@ -23,8 +23,8 @@ class Stack:
     def isEmpty(self):
         return self.items == []
 
-    def __str__(self):
-        return 'Stack: ' + ', '.join(str(self.items))
+    # def __str__(self):
+    #     return 'Stack: ' + ', '.join(str(self.items))
 
     # def __repr__(self) -> str:
     #     return self.__str__()
