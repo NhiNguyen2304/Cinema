@@ -1,6 +1,6 @@
 # Cinema
-This is Cinema project for applying Data Structure.
-This project aimed to implement data structure as LinkedList, Queue, Stack, Binary Search Tree from scratch by using Python
+⚡️This is Cinema project for applying Data Structure.
+⚡️This project aimed to implement data structure as LinkedList, Queue, Stack, Binary Search Tree from scratch by using Python
 
 ### Project specification, implement data structure to solve project problem
 
@@ -21,5 +21,12 @@ a while, you always keep a copy of your favourite movie somewhere safe, as a bac
 You need your system to allow you to add or remove customers and their information 
 (name, phone number, payment method). You also store how many screenings they have 
 attended, because after 10 screenings they get a free ticket.
+
+## Features
+⚡️Adding a customer
+⚡️Removing a customer
+⚡️Receiving a new movie
+⚡️Scheduling the next movie
+⚡️Serving customers
 
 More solving problem from file (n11232862_PhanThaoNhiNguyen_IFN564_Ass.pdf)
