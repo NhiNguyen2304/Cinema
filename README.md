@@ -30,3 +30,8 @@ Adding a customer\
 ⚡️Serving customers
 
 More solving problem from file (n11232862_PhanThaoNhiNguyen_IFN564_Ass.pdf)
+
+# Running Locally
+```
+python3 cinema_execute.py
+```
